@@ -1,0 +1,24 @@
+
+<h5>Имя товара, количество товара, и сумма (price) по каждому товару (сгруппировать)</h5>
+<table class="table">
+        <thead>
+                <tr>
+                  <th scope="col">Название товара</th>
+                  <th scope="col">Количество</th>
+                  <th scope="col">Цена</th>
+                </tr>
+              </thead>
+              <tbody>
+
+<?php foreach($data['request2'] as $request2_data){ ?>
+   
+        <tr  scope="row">
+                <td><?= $request2_data['name'] ?></td>
+                <td><?= $request2_data['count'] ?></td>
+                <td><?= $request2_data['price'] ?></td>                       
+        </tr>
+    
+
+<?php } ?>
+</tbody>
+</table>

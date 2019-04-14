@@ -1,0 +1,29 @@
+<h5>Номер заказа, имя товара, цена, количество, имя оператора за которым числится заказ ,ГДЕ количество товара >2 И id оператора 10 ИЛИ 12</h5>
+
+<table class="table">
+        <thead>
+                <tr>
+                  <th scope="col">Название товара</th>
+                  <th scope="col">Количество</th>
+                  <th scope="col">Цена</th>
+                </tr>
+              </thead>
+              <tbody>
+
+<?php foreach($data['request1'] as $request1_data){ ?>
+        
+        <tr  scope="row">
+                 <td><?= $request1_data['name'] ?></td>
+                 <td><?= $request1_data['price'] ?></td>
+                 <td><?= $request1_data['count'] ?></td>
+                 <td><?= $request1_data['operator'] ?></td>            
+        </tr> 
+    
+
+<?php } ?>
+</tbody>
+</table>
+
+
+
+
