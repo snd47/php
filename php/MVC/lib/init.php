@@ -1,23 +1,40 @@
 <?php
-// запускает все *.class.php
-require_once(ROOT.DS.'config'.DS.'config.php');
+/**
+ * отвечает за доступ к настройкам сайта и аутолоад
+ * User: Sasha
+ * Date: 1/23/2019
+ * Time: 16:30
+ */
 
-function __autoload($class_name) {
-    $lib_path = ROOT.DS.'lib'.DS.strtolower($class_name).'.class.php';
-    $controllers_path = ROOT.DS.'controllers'.DS.str_replace('controller', '', strtolower($class_name)).'.controller.php';
-    $model_path = ROOT.DS.'models'.DS.strtolower($class_name).'.php';
+spl_autoload_register ('autoload');
 
-    if (file_exists($lib_path)) {
-            require_once($lib_path);
-        } 
-        elseif (file_exists($controllers_path)) {
-            require_once($controllers_path);
-        }
-        elseif (file_exists($model_path)) {
-            require_once($model_path);
-        } 
-        else {
-            throw new Exception('Failed to include class: '.$class_name);
-        }
+require_once(ROOT.DS. 'config' .DS. 'config.php');
+
+/**
+ * @param $class_name
+ * @throws Exception
+ */
+function autoload($class_name) {
+
+    $lib_path = ROOT.DS . 'lib' . DS . ucfirst(strtolower($class_name)) . '.php';
+    $controllers = ROOT.DS . 'controllers' . DS . str_replace('controller', '', strtolower($class_name))  . '.controller.php';
+    $model_path = ROOT.DS . 'models' . DS . ucfirst(strtolower($class_name)) . '.php';
+
+    if ( file_exists($lib_path) ) {
+        require_once ($lib_path);
+    } elseif ( file_exists($controllers) ){
+        require_once ($controllers);
+    } elseif ( file_exists( $model_path) ) {
+        require_once ($model_path);
+    } else {
+        throw new Exception("Failed to include class: " . $class_name);
+    }
 
 }
+
+function __($key, $default_value = ''){
+    return Lang::get($key, $default_value);
+}
+
+
+
