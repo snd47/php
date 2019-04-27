@@ -6,23 +6,26 @@
  * Time: 16:29
  */
 
-Config::set('site_name', 'Your Site Name');
+config::set('site_name', 'Your Site Name');
 
-Config::set('languages', array('en', 'fr'));
+config::set('languages', array('en', 'fr'));
 
 //Routes. ROute name => method prefix
 
-Config::set('routes', array(
+config::set('routes', array(
     'default'   => '',
     'admin'     => 'admin_'
 ));
 
-Config::set('default_route', 'default');
-Config::set('default_language', 'en');
-Config::set('default_controller', 'pages');
-Config::set('default_action', 'index');
+config::set('default_route', 'default');
+config::set('default_language', 'en');
+config::set('default_controller', 'pages');
+config::set('default_action', 'index');
 
-Config::set('db.host', 'localhost');
-Config::set('db.user', 'root');
-Config::set('db.password', '');
-Config::set('db.db_name', 'mvc');
+config::set('db.host', 'localhost');
+config::set('db.user', 'root');
+config::set('db.password', '');
+config::set('db.db_name', 'mvc');
+
+
+config::set('salt', 'jdpa4jdpaojpjgpaojgf7');

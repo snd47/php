@@ -1,3 +1,5 @@
+# all to index.php exept filename or dir in webroot structure
+
 <IfModule mod_rewrite.c>
     RewriteEngine on
     RewriteCond %{REQUEST_FILENAME} !-f

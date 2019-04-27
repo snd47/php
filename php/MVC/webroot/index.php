@@ -10,6 +10,10 @@ require_once (ROOT.DS.'lib'.DS.'init.php');
 $uri = $_SERVER['REQUEST_URI'];
 $router = new Router($uri);
 
+//  Session test
+// Session::setFlash('Test flash message');
+
+session_start();
 
 
 try {

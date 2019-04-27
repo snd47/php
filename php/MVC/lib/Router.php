@@ -83,12 +83,12 @@ class Router
         $this->uri = urldecode(trim($uri, '/'));
 
         //Get defaults
-        $routes = Config::get('routes');
-        $this->route = Config::get('default_route');
+        $routes = config::get('routes');
+        $this->route = config::get('default_route');
         $this->method_prefix = isset($routes[$this->route]) ? $routes[$this->route] : '';
-        $this->language = Config::get('default_language');
-        $this->controller = Config::get('default_controller');
-        $this->action = Config::get('default_action');
+        $this->language = config::get('default_language');
+        $this->controller = config::get('default_controller');
+        $this->action = config::get('default_action');
 
         $uri_parts = explode('?', $this->uri);
 
@@ -104,7 +104,7 @@ class Router
                 $this->route = strtolower(current($path_parts));
                 $this->method_prefix = isset($routes[$this->route]) ? $routes[$this->route] : '';
                 array_shift($path_parts);
-            } elseif( in_array(strtolower(current($path_parts)), Config::get('languages')) ){
+            } elseif( in_array(strtolower(current($path_parts)), config::get('languages')) ){
                 $this->language = strtolower(current($path_parts));
                 array_shift($path_parts);
             }

@@ -1,3 +1,5 @@
+# redirect to webroot
+
 <IfModule mod_rewrite.c>
     RewriteEngine on
     RewriteRule ^$ webroot/ [L]
